@@ -2,32 +2,20 @@ package br.com.zup.edu.sitedeviagens.companhia;
 
 import br.com.zup.edu.sitedeviagens.pais.Pais;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-@Entity
-public class Companhia {
+public class CompanhiaResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank
     private String nome;
-
-    private LocalDateTime instanteCriacao = LocalDateTime.now();
-
-    @ManyToOne
+    private LocalDateTime instanteCriacao;
     private Pais pais;
 
-    @Deprecated
-    public Companhia() {
-    }
-
-    public Companhia(String nome, Pais pais) {
-        this.nome = nome;
-        this.pais = pais;
+    public CompanhiaResponse(Companhia companhia) {
+        this.id = companhia.getId();
+        this.nome = companhia.getNome();
+        this.instanteCriacao = companhia.getInstanteCriacao();
+        this.pais = companhia.getPais();
     }
 
     public Long getId() {

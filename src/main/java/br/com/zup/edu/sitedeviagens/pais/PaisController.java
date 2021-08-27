@@ -26,6 +26,6 @@ public class PaisController {
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(pais.getId()).toUri();
 
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(new PaisResponse(pais));
     }
 }

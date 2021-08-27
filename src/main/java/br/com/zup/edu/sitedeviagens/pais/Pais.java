@@ -32,4 +32,8 @@ public class Pais {
 	public Long getId() {
 		return id;
 	}
+
+	public String getNome() {
+		return nome;
+	}
 }

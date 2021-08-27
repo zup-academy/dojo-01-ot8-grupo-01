@@ -1,4 +1,4 @@
-package br.com.zup.edu.sitedeviagens.companhia;
+package br.com.zup.edu.sitedeviagens.aeroporto;
 
 import br.com.zup.edu.sitedeviagens.pais.Pais;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
-public class Companhia {
+public class Aeroporto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,16 +16,14 @@ public class Companhia {
     @NotBlank
     private String nome;
 
-    private LocalDateTime instanteCriacao = LocalDateTime.now();
-
     @ManyToOne
     private Pais pais;
 
     @Deprecated
-    public Companhia() {
+    public Aeroporto() {
     }
 
-    public Companhia(String nome, Pais pais) {
+    public Aeroporto(String nome, Pais pais) {
         this.nome = nome;
         this.pais = pais;
     }
@@ -36,10 +34,6 @@ public class Companhia {
 
     public String getNome() {
         return nome;
-    }
-
-    public LocalDateTime getInstanteCriacao() {
-        return instanteCriacao;
     }
 
     public Pais getPais() {

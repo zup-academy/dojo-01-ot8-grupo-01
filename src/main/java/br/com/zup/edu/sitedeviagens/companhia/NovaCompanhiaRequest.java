@@ -1,12 +1,11 @@
 package br.com.zup.edu.sitedeviagens.companhia;
 
-import br.com.zup.edu.sitedeviagens.Compartilhado.ExistisId;
+import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.ExistisId;
 import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.CampoUnico;
 import br.com.zup.edu.sitedeviagens.pais.Pais;
 import br.com.zup.edu.sitedeviagens.pais.PaisRepository;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Optional;
 
 public class NovaCompanhiaRequest {
 

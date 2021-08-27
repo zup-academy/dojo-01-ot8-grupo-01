@@ -1,4 +1,4 @@
-package br.com.zup.edu.sitedeviagens.Compartilhado;
+package br.com.zup.edu.sitedeviagens.Compartilhado.Validators;
 
 
 import javax.validation.Constraint;

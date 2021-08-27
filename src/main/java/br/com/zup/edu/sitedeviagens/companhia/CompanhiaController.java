@@ -16,16 +16,16 @@ import br.com.zup.edu.sitedeviagens.pais.PaisRepository;
 public class CompanhiaController {
 
     @Autowired
-	private CompanhiaRepository repository;
+    private CompanhiaRepository repository;
     @Autowired
     private PaisRepository paisRepository;
-    
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    private void cadastrar(@RequestBody @Validated NovaCompanhiaRequest novaCompanhia)
-			throws Exception{
-		Companhia companhia = novaCompanhia.toModel(paisRepository);
-		repository.save(companhia);	
+    private CompanhiaResponse cadastrar(@RequestBody @Validated NovaCompanhiaRequest novaCompanhia)
+            throws Exception {
+        Companhia companhia = novaCompanhia.toModel(paisRepository);
+        return new CompanhiaResponse(repository.save(companhia));
     }
-    
+
 }
