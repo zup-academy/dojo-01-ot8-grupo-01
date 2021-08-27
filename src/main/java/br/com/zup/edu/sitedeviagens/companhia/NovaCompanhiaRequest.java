@@ -20,4 +20,34 @@ public class NovaCompanhiaRequest {
         Pais pais = paisRepository.findById(paisId).get();
         return new Companhia(nome, pais);
     }
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @param nome the nome to set
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	/**
+	 * @return the paisId
+	 */
+	public Long getPaisId() {
+		return paisId;
+	}
+
+	/**
+	 * @param paisId the paisId to set
+	 */
+	public void setPaisId(Long paisId) {
+		this.paisId = paisId;
+	}
+    
+    
 }
