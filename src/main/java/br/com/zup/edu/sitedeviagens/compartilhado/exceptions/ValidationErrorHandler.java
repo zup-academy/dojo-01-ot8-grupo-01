@@ -1,4 +1,4 @@
-package br.com.zup.edu.sitedeviagens.Compartilhado.Exceptions;
+package br.com.zup.edu.sitedeviagens.compartilhado.exceptions;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,4 @@
-package br.com.zup.edu.sitedeviagens.Compartilhado.Validators;
-
+package br.com.zup.edu.sitedeviagens.compartilhado.validators;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -8,12 +7,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.FIELD})
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {ExistIdValidator.class})
-public @interface ExistisId {
-    String message() default "Não existe registro com esse campo de identificação";
+@Constraint(validatedBy = CampoUnicoValidator.class)
+public @interface CampoUnico {
     Class<?>[] groups() default { };
     Class<? extends Payload>[] payload() default { };
+    String nomeCampo();
     Class<?> classe();
+    String message() default "Valor já cadastrado";
 }

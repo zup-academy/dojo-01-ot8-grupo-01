@@ -1,7 +1,7 @@
 package br.com.zup.edu.sitedeviagens.aeroporto;
 
-import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.CampoUnico;
-import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.ExistisId;
+import br.com.zup.edu.sitedeviagens.compartilhado.validators.CampoUnico;
+import br.com.zup.edu.sitedeviagens.compartilhado.validators.ExistisId;
 import br.com.zup.edu.sitedeviagens.pais.Pais;
 import br.com.zup.edu.sitedeviagens.pais.PaisRepository;
 
@@ -9,10 +9,10 @@ import javax.validation.constraints.NotBlank;
 
 public class NovoAeroportoRequest {
 
-    @NotBlank @CampoUnico(classe = Aeroporto.class, nomeCampo = "nome")
+    @NotBlank @CampoUnico(classe = Aeroporto.class, nomeCampo = "nome", message = "Esse aeroporto já está cadastrado")
     private String nome;
 
-    @ExistisId(classe = Aeroporto.class)
+    @ExistisId(classe = Pais.class)
     private Long paisId;
 
     public Aeroporto toModel(PaisRepository paisRepository) {

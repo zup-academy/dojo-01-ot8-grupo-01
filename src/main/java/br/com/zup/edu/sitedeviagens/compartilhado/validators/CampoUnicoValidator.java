@@ -1,4 +1,4 @@
-package br.com.zup.edu.sitedeviagens.Compartilhado.Validators;
+package br.com.zup.edu.sitedeviagens.compartilhado.validators;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

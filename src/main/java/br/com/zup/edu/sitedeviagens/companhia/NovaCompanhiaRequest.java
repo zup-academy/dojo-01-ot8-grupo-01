@@ -1,7 +1,7 @@
 package br.com.zup.edu.sitedeviagens.companhia;
 
-import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.ExistisId;
-import br.com.zup.edu.sitedeviagens.Compartilhado.Validators.CampoUnico;
+import br.com.zup.edu.sitedeviagens.compartilhado.validators.ExistisId;
+import br.com.zup.edu.sitedeviagens.compartilhado.validators.CampoUnico;
 import br.com.zup.edu.sitedeviagens.pais.Pais;
 import br.com.zup.edu.sitedeviagens.pais.PaisRepository;
 
@@ -9,10 +9,10 @@ import javax.validation.constraints.NotBlank;
 
 public class NovaCompanhiaRequest {
 
-    @NotBlank @CampoUnico(classe = Companhia.class, nomeCampo = "nome")
+    @NotBlank @CampoUnico(classe = Companhia.class, nomeCampo = "nome", message = "Essa Campanhia já está cadastrada")
     private String nome;
 
-    @ExistisId(classe = Companhia.class)
+    @ExistisId(classe = Pais.class)
     private Long paisId;
 
     public Companhia toModel(PaisRepository paisRepository) {

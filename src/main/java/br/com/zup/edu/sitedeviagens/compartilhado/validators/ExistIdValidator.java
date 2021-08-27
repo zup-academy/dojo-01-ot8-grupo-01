@@ -1,4 +1,4 @@
-package br.com.zup.edu.sitedeviagens.Compartilhado.Validators;
+package br.com.zup.edu.sitedeviagens.compartilhado.validators;
 
 
 import javax.persistence.EntityManager;
@@ -21,7 +21,7 @@ public class ExistIdValidator implements ConstraintValidator<ExistisId, Object> 
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
-        Query query = manager.createQuery("select 1 from "+ classe.getName() +" t where t.id=:value");
+        Query query = manager.createQuery("select 1 from "+ classe.getSimpleName() +" t where t.id=:value");
         query.setParameter("value", value);
         return query.getResultList().size() > 0;
     }
