@@ -1,10 +1,10 @@
 package br.com.zup.edu.sitedeviagens.compartilhado.exceptions;
 
-public class ErroFormDTO {
+public class ErroResponseDTO {
     private String campo;
     private String erro;
 
-    public ErroFormDTO(String campo, String erro) {
+    public ErroResponseDTO(String campo, String erro) {
         this.campo = campo;
         this.erro = erro;
     }
