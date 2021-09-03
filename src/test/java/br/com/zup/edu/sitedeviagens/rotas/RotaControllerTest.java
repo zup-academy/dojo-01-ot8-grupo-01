@@ -1,4 +1,4 @@
-package java.br.com.zup.edu.sitedeviagens.rotas;
+package br.com.zup.edu.sitedeviagens.rotas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
