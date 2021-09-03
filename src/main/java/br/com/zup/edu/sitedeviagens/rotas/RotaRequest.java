@@ -25,6 +25,11 @@ public class RotaRequest {
     public Rota toModel(AeroportoRepository aeroportoRepository ){
         Aeroporto aeroportoOrigem = aeroportoRepository.findById(aeroportoOrigemId).get();
         Aeroporto aeroportoDestino = aeroportoRepository.findById(aeroportoDestinoId).get();
+
+        if(aeroportoOrigem.equals(aeroportoDestino)){
+            throw new IllegalArgumentException("O Destino não pode ser igual Origem");
+        }
+
         if(nome.isBlank()){
             nome = aeroportoOrigem.getNome() + " - " + aeroportoDestino.getNome();
         }

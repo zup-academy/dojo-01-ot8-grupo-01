@@ -5,6 +5,7 @@ import br.com.zup.edu.sitedeviagens.pais.Pais;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class Aeroporto {
@@ -38,5 +39,18 @@ public class Aeroporto {
 
     public Pais getPais() {
         return pais;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aeroporto aeroporto = (Aeroporto) o;
+        return id.equals(aeroporto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

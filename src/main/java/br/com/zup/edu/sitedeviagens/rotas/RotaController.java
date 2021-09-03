@@ -20,8 +20,9 @@ public class RotaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrar (@RequestParam @Valid RotaRequest rotaRequest){
+    public void cadastrar (@RequestBody @Valid RotaRequest rotaRequest){
         Rota rota = rotaRequest.toModel(aeroportoRepository);
+        return;
 
     }
 }

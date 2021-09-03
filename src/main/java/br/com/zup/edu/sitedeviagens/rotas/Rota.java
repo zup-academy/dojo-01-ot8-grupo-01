@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.Objects;
 
 @Entity
 public class Rota {
@@ -50,5 +51,4 @@ public class Rota {
     public int getDuracaoMinutos() {
         return duracaoMinutos;
     }
-
 }
