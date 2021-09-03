@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,12 +32,18 @@ public class RotaControllerTest {
     }
 
     @Test
-    public void quandoBodyValidoEnviadoRetornaOk() throws Exception {
-        RotaRequest rotaRequest = Mockito.mock(RotaRequest.class);
+    public void quandoIdAeroportoNaoExisteRetornaBadRequest() throws Exception {
+        //cenario
+        RotaRequest rotaRequest = new RotaRequest("Rota1", 1L, 1L, 180);
+
+
+        //ação
         mockMvc.perform(post("/rotas").accept(MediaType.APPLICATION_JSON)
-                .content()
-                .contentType(MediaType.APPLICATION_JSON)
-                .andExpect(status().isOk());
+                .content(gson.toJson(rotaRequest))
+                .contentType(MediaType.APPLICATION_JSON))
+                //asserts
+                .andExpect(status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].campo").value("aeroportoDestinoId"));
     }
 
 }

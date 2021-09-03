@@ -22,6 +22,18 @@ public class RotaRequest {
     @Positive @NotNull
     private int duracaoMinutos;
 
+    @Deprecated
+    public RotaRequest() {
+    }
+
+    public RotaRequest(String nome, Long aeroportoOrigemId, Long aeroportoDestinoId, int duracaoMinutos) {
+        this.nome = nome;
+        this.aeroportoOrigemId = aeroportoOrigemId;
+        this.aeroportoDestinoId = aeroportoDestinoId;
+        this.duracaoMinutos = duracaoMinutos;
+    }
+
+
     public Rota toModel(AeroportoRepository aeroportoRepository ){
         Aeroporto aeroportoOrigem = aeroportoRepository.findById(aeroportoOrigemId).get();
         Aeroporto aeroportoDestino = aeroportoRepository.findById(aeroportoDestinoId).get();
